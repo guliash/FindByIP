@@ -1,4 +1,4 @@
-package com.guliash.findbyip.search.ip.geoip;
+package com.guliash.findbyip.search.ip.service.geoip;
 
 import android.support.annotation.NonNull;
 

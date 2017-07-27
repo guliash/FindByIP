@@ -1,4 +1,4 @@
-package com.guliash.findbyip.search.ip;
+package com.guliash.findbyip.search.location.model;
 
 public class Location {
 

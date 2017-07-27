@@ -1,4 +1,4 @@
-package com.guliash.findbyip.search.ip.freegeoip.di;
+package com.guliash.findbyip.search.ip.service.freegeoip.di;
 
 import javax.inject.Qualifier;
 

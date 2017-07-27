@@ -1,4 +1,4 @@
-package com.guliash.findbyip.search.ip.freegeoip;
+package com.guliash.findbyip.search.ip.service.freegeoip;
 
 import com.squareup.moshi.Json;
 

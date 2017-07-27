@@ -1,10 +1,10 @@
-package com.guliash.findbyip.search.ip.geoip;
+package com.guliash.findbyip.search.ip.service.geoip;
 
 import android.support.annotation.NonNull;
 
-import com.guliash.findbyip.search.ip.IpInfo;
-import com.guliash.findbyip.search.ip.IpInfoService;
-import com.guliash.findbyip.search.ip.Location;
+import com.guliash.findbyip.search.ip.model.IpInfo;
+import com.guliash.findbyip.search.ip.service.IpInfoService;
+import com.guliash.findbyip.search.location.model.Location;
 
 import org.json.JSONObject;
 

@@ -1,8 +1,8 @@
-package com.guliash.findbyip.search.ip.geoip.di;
+package com.guliash.findbyip.search.ip.service.geoip.di;
 
-import com.guliash.findbyip.search.ip.IpInfoService;
-import com.guliash.findbyip.search.ip.geoip.GeoIpApi;
-import com.guliash.findbyip.search.ip.geoip.GeoIpService;
+import com.guliash.findbyip.search.ip.service.IpInfoService;
+import com.guliash.findbyip.search.ip.service.geoip.GeoIpApi;
+import com.guliash.findbyip.search.ip.service.geoip.GeoIpService;
 
 import dagger.Module;
 import dagger.Provides;

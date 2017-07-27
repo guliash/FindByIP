@@ -1,7 +1,7 @@
 package com.guliash.findbyip;
 
-import com.guliash.findbyip.search.ip.IpInfo;
-import com.guliash.findbyip.search.ip.Location;
+import com.guliash.findbyip.search.ip.model.IpInfo;
+import com.guliash.findbyip.search.location.model.Location;
 
 public class Stub {
 

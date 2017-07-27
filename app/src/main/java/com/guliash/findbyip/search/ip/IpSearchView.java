@@ -1,8 +1,8 @@
-package com.guliash.findbyip.search.view;
+package com.guliash.findbyip.search.ip;
 
 import android.support.annotation.NonNull;
 
-import com.guliash.findbyip.search.ip.Location;
+import com.guliash.findbyip.search.location.model.Location;
 
 import io.reactivex.Observable;
 

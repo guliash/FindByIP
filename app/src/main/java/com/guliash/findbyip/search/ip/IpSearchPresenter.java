@@ -1,4 +1,4 @@
-package com.guliash.findbyip.search.view;
+package com.guliash.findbyip.search.ip;
 
 import android.support.annotation.NonNull;
 
@@ -6,7 +6,7 @@ import com.guliash.findbyip.core.mvp.BasePresenter;
 import com.guliash.findbyip.core.rx.ComputationScheduler;
 import com.guliash.findbyip.core.rx.IoScheduler;
 import com.guliash.findbyip.core.rx.MainScheduler;
-import com.guliash.findbyip.search.ip.IpInfoService;
+import com.guliash.findbyip.search.ip.service.IpInfoService;
 
 import java.util.concurrent.TimeUnit;
 

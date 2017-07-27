@@ -1,14 +1,10 @@
-package com.guliash.findbyip.search.ip.freegeoip;
+package com.guliash.findbyip.search.ip.service.freegeoip;
 
 import android.support.annotation.NonNull;
 
-import com.guliash.findbyip.search.di.SearchScope;
-import com.guliash.findbyip.search.ip.IpInfo;
-import com.guliash.findbyip.search.ip.IpInfoService;
-import com.guliash.findbyip.search.ip.Location;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import com.guliash.findbyip.search.ip.model.IpInfo;
+import com.guliash.findbyip.search.ip.service.IpInfoService;
+import com.guliash.findbyip.search.location.model.Location;
 
 import io.reactivex.Flowable;
 

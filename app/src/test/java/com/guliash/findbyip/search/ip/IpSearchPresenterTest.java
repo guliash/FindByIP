@@ -1,8 +1,10 @@
-package com.guliash.findbyip.search.view;
+package com.guliash.findbyip.search.ip;
 
 import com.guliash.findbyip.Stub;
 import com.guliash.findbyip.core.utils.Irrelevant;
-import com.guliash.findbyip.search.ip.IpInfoService;
+import com.guliash.findbyip.search.ip.IpSearchPresenter;
+import com.guliash.findbyip.search.ip.IpSearchView;
+import com.guliash.findbyip.search.ip.service.IpInfoService;
 
 import org.junit.Before;
 import org.junit.Test;

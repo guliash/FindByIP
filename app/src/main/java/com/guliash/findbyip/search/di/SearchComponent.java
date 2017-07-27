@@ -1,10 +1,11 @@
 package com.guliash.findbyip.search.di;
 
 import com.guliash.findbyip.ApplicationComponent;
+import com.guliash.findbyip.search.SearchActivity;
 import com.guliash.findbyip.search.ip.IpInfoModule;
-import com.guliash.findbyip.search.ip.freegeoip.di.FreegeoipModule;
-import com.guliash.findbyip.search.ip.geoip.di.GeoIpModule;
-import com.guliash.findbyip.search.view.IpSearchActivity;
+import com.guliash.findbyip.search.ip.di.IpSearchComponentBuilderProvider;
+import com.guliash.findbyip.search.ip.service.freegeoip.di.FreegeoipModule;
+import com.guliash.findbyip.search.ip.service.geoip.di.GeoIpModule;
 
 import dagger.Component;
 
@@ -19,8 +20,8 @@ import dagger.Component;
                 ApplicationComponent.class
         }
 )
-public interface SearchComponent {
+public interface SearchComponent extends IpSearchComponentBuilderProvider {
 
-    void inject(IpSearchActivity ipSearchActivity);
+    void inject(SearchActivity searchActivity);
 
 }

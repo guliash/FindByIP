@@ -1,9 +1,8 @@
 package com.guliash.findbyip.search.ip;
 
 import com.guliash.findbyip.search.di.SearchScope;
-import com.guliash.findbyip.search.ip.freegeoip.di.Freegeoip;
-
-import javax.inject.Singleton;
+import com.guliash.findbyip.search.ip.service.IpInfoService;
+import com.guliash.findbyip.search.ip.service.freegeoip.di.Freegeoip;
 
 import dagger.Module;
 import dagger.Provides;

@@ -1,6 +1,8 @@
-package com.guliash.findbyip.search.ip;
+package com.guliash.findbyip.search.ip.model;
 
 import android.support.annotation.NonNull;
+
+import com.guliash.findbyip.search.location.model.Location;
 
 public class IpInfo {
 

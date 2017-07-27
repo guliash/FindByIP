@@ -1,6 +1,8 @@
-package com.guliash.findbyip.search.ip;
+package com.guliash.findbyip.search.ip.service;
 
 import android.support.annotation.NonNull;
+
+import com.guliash.findbyip.search.ip.model.IpInfo;
 
 import io.reactivex.Flowable;
 

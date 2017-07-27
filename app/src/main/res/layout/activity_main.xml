@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context="com.guliash.findbyip.search.view.IpSearchActivity">
+    android:id="@+id/content"
+    tools:context="com.guliash.findbyip.search.SearchActivity">
 
-    <EditText
-        android:id="@+id/ip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/ip_input_hint" />
-
-    <Button
-        android:id="@+id/find"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/find" />
-
-    <TextView
-        android:id="@+id/location"
-        style="@style/LocationStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-</LinearLayout>
+</FrameLayout>
