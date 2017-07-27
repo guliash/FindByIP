@@ -1,9 +1,10 @@
-package com.guliash.findbyip.core.ip.geoip;
+package com.guliash.findbyip.search.ip.geoip;
 
 import android.support.annotation.NonNull;
 
-import com.guliash.findbyip.core.ip.IpInfo;
-import com.guliash.findbyip.core.ip.IpInfoService;
+import com.guliash.findbyip.search.di.SearchScope;
+import com.guliash.findbyip.search.ip.IpInfo;
+import com.guliash.findbyip.search.ip.IpInfoService;
 
 import org.json.JSONObject;
 
@@ -14,7 +15,7 @@ import io.reactivex.Flowable;
 import retrofit2.HttpException;
 import retrofit2.Response;
 
-@Singleton
+@SearchScope
 public class GeoIpService implements IpInfoService {
 
     private final GeoIpApi geoIpApi;

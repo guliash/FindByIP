@@ -1,4 +1,4 @@
-package com.guliash.findbyip.core.ip.geoip;
+package com.guliash.findbyip.search.ip.geoip;
 
 import io.reactivex.Flowable;
 import okhttp3.ResponseBody;

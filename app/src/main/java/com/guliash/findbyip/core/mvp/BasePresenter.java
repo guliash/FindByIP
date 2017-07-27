@@ -8,7 +8,7 @@ import io.reactivex.disposables.Disposable;
 public abstract class BasePresenter<V> {
 
     protected V view;
-    private CompositeDisposable bindDisposables = new CompositeDisposable();
+    private CompositeDisposable unbindDisposables = new CompositeDisposable();
 
     @CallSuper
     public void bind(V view) {
@@ -22,11 +22,11 @@ public abstract class BasePresenter<V> {
         if (view != this.view) {
             throw new IllegalStateException("Presenter has unbound view");
         }
-        bindDisposables.clear();
+        unbindDisposables.clear();
         this.view = null;
     }
 
-    protected void subscribeOnBind(Disposable... disposables) {
-        bindDisposables.addAll(disposables);
+    protected void unsubscribeOnUnbind(Disposable... disposables) {
+        unbindDisposables.addAll(disposables);
     }
 }

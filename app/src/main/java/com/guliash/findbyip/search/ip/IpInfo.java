@@ -1,4 +1,4 @@
-package com.guliash.findbyip.core.ip;
+package com.guliash.findbyip.search.ip;
 
 import android.support.annotation.NonNull;
 
@@ -32,5 +32,10 @@ public class IpInfo {
 
     public float longitude() {
         return longitude;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("{%s %s %s}", ip, latitude, longitude);
     }
 }

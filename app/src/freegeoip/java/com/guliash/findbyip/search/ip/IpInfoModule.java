@@ -1,6 +1,7 @@
-package com.guliash.findbyip.core.ip;
+package com.guliash.findbyip.search.ip;
 
-import com.guliash.findbyip.core.ip.freegeoip.di.Freegeoip;
+import com.guliash.findbyip.search.di.SearchScope;
+import com.guliash.findbyip.search.ip.freegeoip.di.Freegeoip;
 
 import javax.inject.Singleton;
 
@@ -11,7 +12,7 @@ import dagger.Provides;
 public class IpInfoModule {
 
     @Provides
-    @Singleton
+    @SearchScope
     public IpInfoService provideIpInfoService(@Freegeoip IpInfoService ipInfoService) {
         return ipInfoService;
     }

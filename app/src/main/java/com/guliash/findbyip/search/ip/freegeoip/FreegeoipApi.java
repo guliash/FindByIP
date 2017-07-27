@@ -1,4 +1,4 @@
-package com.guliash.findbyip.core.ip.freegeoip;
+package com.guliash.findbyip.search.ip.freegeoip;
 
 import android.support.annotation.NonNull;
 

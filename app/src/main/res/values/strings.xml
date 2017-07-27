@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Find By IP</string>
     <string name="ip_input_hint">Enter IP</string>
+    <string name="find">Find</string>
 </resources>

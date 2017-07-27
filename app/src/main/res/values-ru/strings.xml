@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Вычислить по IP</string>
     <string name="ip_input_hint">Введите IP</string>
+    <string name="find">Вычислить</string>
 </resources>

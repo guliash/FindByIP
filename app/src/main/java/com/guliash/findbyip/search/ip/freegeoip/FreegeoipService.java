@@ -1,16 +1,17 @@
-package com.guliash.findbyip.core.ip.freegeoip;
+package com.guliash.findbyip.search.ip.freegeoip;
 
 import android.support.annotation.NonNull;
 
-import com.guliash.findbyip.core.ip.IpInfo;
-import com.guliash.findbyip.core.ip.IpInfoService;
+import com.guliash.findbyip.search.di.SearchScope;
+import com.guliash.findbyip.search.ip.IpInfo;
+import com.guliash.findbyip.search.ip.IpInfoService;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Flowable;
 
-@Singleton
+@SearchScope
 public class FreegeoipService implements IpInfoService {
 
     private final FreegeoipApi freegeoipApi;

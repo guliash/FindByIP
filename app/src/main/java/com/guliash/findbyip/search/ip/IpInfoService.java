@@ -1,4 +1,4 @@
-package com.guliash.findbyip.core.ip;
+package com.guliash.findbyip.search.ip;
 
 import android.support.annotation.NonNull;
 
