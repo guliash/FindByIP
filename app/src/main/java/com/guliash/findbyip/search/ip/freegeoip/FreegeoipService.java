@@ -11,12 +11,10 @@ import javax.inject.Singleton;
 
 import io.reactivex.Flowable;
 
-@SearchScope
 public class FreegeoipService implements IpInfoService {
 
     private final FreegeoipApi freegeoipApi;
 
-    @Inject
     public FreegeoipService(@NonNull FreegeoipApi freegeoipApi) {
         this.freegeoipApi = freegeoipApi;
     }

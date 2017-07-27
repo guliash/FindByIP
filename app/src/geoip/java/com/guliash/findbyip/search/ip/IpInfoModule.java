@@ -1,9 +1,7 @@
 package com.guliash.findbyip.search.ip;
 
 import com.guliash.findbyip.search.di.SearchScope;
-import com.guliash.findbyip.search.ip.freegeoip.di.Freegeoip;
-
-import javax.inject.Singleton;
+import com.guliash.findbyip.search.ip.geoip.di.GeoIp;
 
 import dagger.Module;
 import dagger.Provides;
@@ -13,7 +11,7 @@ public class IpInfoModule {
 
     @Provides
     @SearchScope
-    public static IpInfoService provideIpInfoService(@Freegeoip IpInfoService ipInfoService) {
+    public static IpInfoService provideIpInfoService(@GeoIp IpInfoService ipInfoService) {
         return ipInfoService;
     }
 

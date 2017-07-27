@@ -15,12 +15,10 @@ import io.reactivex.Flowable;
 import retrofit2.HttpException;
 import retrofit2.Response;
 
-@SearchScope
 public class GeoIpService implements IpInfoService {
 
     private final GeoIpApi geoIpApi;
 
-    @Inject
     public GeoIpService(GeoIpApi geoIpApi) {
         this.geoIpApi = geoIpApi;
     }
@@ -28,7 +26,7 @@ public class GeoIpService implements IpInfoService {
     @NonNull
     @Override
     public Flowable<IpInfo> findByIp(@NonNull String ip) {
-        return geoIpApi.findByIp().flatMap(it -> {
+        return geoIpApi.findByIp(ip).flatMap(it -> {
             final JSONObject jsonObject = new JSONObject(it.string());
             if (jsonObject.optString("type").equals("error")) {
                 return Flowable.error(new HttpException(Response.error(400, it)));
