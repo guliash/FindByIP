@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Vychislator</string>
+    <string name="app_name">Find By IP</string>
+    <string name="ip_input_hint">Enter IP</string>
 </resources>

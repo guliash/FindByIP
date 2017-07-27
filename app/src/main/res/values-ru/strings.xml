@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Вычислить по IP</string>
+    <string name="ip_input_hint">Введите IP</string>
+</resources>
