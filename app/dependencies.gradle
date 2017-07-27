@@ -13,6 +13,7 @@ def versions = [
 
 dependencies {
     compile "com.android.support:appcompat-v7:${versions.support}"
+    compile "com.android.support:design:${versions.support}"
 
     compile "io.reactivex.rxjava2:rxjava:${versions.rxjava}"
     compile "io.reactivex.rxjava2:rxandroid:${versions.rxandroid}"

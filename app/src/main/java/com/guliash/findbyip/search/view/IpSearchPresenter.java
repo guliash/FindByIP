@@ -30,11 +30,12 @@ public class IpSearchPresenter extends BasePresenter<IpSearchView> {
                         .toFlowable(BackpressureStrategy.DROP)
                         .debounce(FIND_DEBOUNCE_INTERVAL_SECONDS, TimeUnit.SECONDS)
                         .flatMap(
-                                ø -> ipInfoService.findByIp(view.ip())
-                                        .subscribeOn(Schedulers.io())
+                                ø -> ipInfoService.findByIp(view.ip()).subscribeOn(Schedulers.io())
                         )
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(it -> System.out.println(it))
+                        .doOnError(ø -> view.showError())
+                        .retryWhen(throwables -> throwables)
+                        .subscribe(System.out::println)
         );
     }
 }

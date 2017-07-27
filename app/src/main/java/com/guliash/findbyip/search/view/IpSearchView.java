@@ -12,4 +12,6 @@ public interface IpSearchView {
     @NonNull
     Observable<Object> findByIpSelections();
 
+    void showError();
+
 }

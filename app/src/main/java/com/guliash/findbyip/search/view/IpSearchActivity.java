@@ -2,6 +2,7 @@ package com.guliash.findbyip.search.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,8 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 
 public class IpSearchActivity extends AppCompatActivity implements IpSearchView {
+
+    private static final int SNACK_ERROR_DURATION = 3000;
 
     private EditText ipEditText;
     private Button findButton;
@@ -44,6 +47,13 @@ public class IpSearchActivity extends AppCompatActivity implements IpSearchView 
         presenter.bind(this);
     }
 
+    @Override
+    protected void onPause() {
+        presenter.unbind(this);
+
+        super.onPause();
+    }
+
     @NonNull
     @Override
     public String ip() {
@@ -54,5 +64,10 @@ public class IpSearchActivity extends AppCompatActivity implements IpSearchView 
     @Override
     public Observable<Object> findByIpSelections() {
         return RxView.clicks(findButton);
+    }
+
+    @Override
+    public void showError() {
+        Snackbar.make(findButton, R.string.find_ip_error, SNACK_ERROR_DURATION).show();
     }
 }

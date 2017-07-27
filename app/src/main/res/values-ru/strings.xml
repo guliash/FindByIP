@@ -3,4 +3,5 @@
     <string name="app_name">Вычислить по IP</string>
     <string name="ip_input_hint">Введите IP</string>
     <string name="find">Вычислить</string>
+    <string name="find_ip_error">Не смог вычислить по IP</string>
 </resources>
