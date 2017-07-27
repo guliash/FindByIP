@@ -4,21 +4,17 @@ import android.support.annotation.NonNull;
 
 public class IpInfo {
 
-    @NonNull
     private final String ip;
 
-    private final float latitude;
+    private final Location location;
 
-    private final float longitude;
-
-    private IpInfo(@NonNull String ip, float latitude, float longitude) {
+    private IpInfo(@NonNull String ip, @NonNull Location location) {
         this.ip = ip;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.location = location;
     }
 
-    public static IpInfo create(@NonNull String ip, float latitude, float longitude) {
-        return new IpInfo(ip, latitude, longitude);
+    public static IpInfo create(@NonNull String ip, @NonNull Location location) {
+        return new IpInfo(ip, location);
     }
 
     @NonNull
@@ -26,16 +22,13 @@ public class IpInfo {
         return ip;
     }
 
-    public float latitude() {
-        return latitude;
-    }
-
-    public float longitude() {
-        return longitude;
+    @NonNull
+    public Location location() {
+        return location;
     }
 
     @Override
     public String toString() {
-        return String.format("{%s %s %s}", ip, latitude, longitude);
+        return String.format("{%s %s}", ip, location);
     }
 }

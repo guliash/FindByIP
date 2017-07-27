@@ -37,6 +37,9 @@ android {
             storePassword keystoreProperties['storePassword']
         }
     }
+    lintOptions {
+        abortOnError true
+    }
     buildTypes {
         debug {
             applicationIdSuffix '.debug'

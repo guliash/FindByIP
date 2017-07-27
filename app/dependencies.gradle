@@ -8,7 +8,8 @@ def versions = [
         dagger   : '2.11',
         moshi    : '1.5.0',
         junit    : '4.12',
-        espresso : '2.2.2'
+        espresso : '2.2.2',
+        mockito  : '2.+'
 ]
 
 dependencies {
@@ -32,6 +33,7 @@ dependencies {
     compile "com.squareup.moshi:moshi:${versions.moshi}"
 
     testCompile "junit:junit:${versions.junit}"
+    testCompile "org.mockito:mockito-core:${versions.mockito}"
 
     androidTestCompile("com.android.support.test.espresso:espresso-core:${versions.espresso}", {
         exclude group: 'com.android.support', module: 'support-annotations'

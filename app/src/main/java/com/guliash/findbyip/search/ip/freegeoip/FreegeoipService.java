@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.guliash.findbyip.search.di.SearchScope;
 import com.guliash.findbyip.search.ip.IpInfo;
 import com.guliash.findbyip.search.ip.IpInfoService;
+import com.guliash.findbyip.search.ip.Location;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -23,6 +24,6 @@ public class FreegeoipService implements IpInfoService {
     @Override
     public Flowable<IpInfo> findByIp(@NonNull String ip) {
         return freegeoipApi.findByIp(ip)
-                .map(it -> IpInfo.create(ip, it.latitude(), it.longitude()));
+                .map(it -> IpInfo.create(ip, Location.create(it.latitude(), it.longitude())));
     }
 }

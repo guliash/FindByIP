@@ -2,6 +2,8 @@ package com.guliash.findbyip.search.view;
 
 import android.support.annotation.NonNull;
 
+import com.guliash.findbyip.search.ip.Location;
+
 import io.reactivex.Observable;
 
 public interface IpSearchView {
@@ -13,5 +15,7 @@ public interface IpSearchView {
     Observable<Object> findByIpSelections();
 
     void showError();
+
+    void showLocation(Location location);
 
 }

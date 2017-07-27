@@ -2,14 +2,11 @@ package com.guliash.findbyip.search.ip.geoip;
 
 import android.support.annotation.NonNull;
 
-import com.guliash.findbyip.search.di.SearchScope;
 import com.guliash.findbyip.search.ip.IpInfo;
 import com.guliash.findbyip.search.ip.IpInfoService;
+import com.guliash.findbyip.search.ip.Location;
 
 import org.json.JSONObject;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import io.reactivex.Flowable;
 import retrofit2.HttpException;
@@ -35,8 +32,10 @@ public class GeoIpService implements IpInfoService {
                 return Flowable.just(
                         IpInfo.create(
                                 ip,
-                                (float) location.getDouble("latitude"),
-                                (float) location.getDouble("longitude")
+                                Location.create(
+                                        (float) location.getDouble("latitude"),
+                                        (float) location.getDouble("longitude")
+                                )
                         )
                 );
             }
