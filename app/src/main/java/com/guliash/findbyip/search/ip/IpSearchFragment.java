@@ -29,6 +29,7 @@ public class IpSearchFragment extends Fragment implements IpSearchView {
         return new IpSearchFragment();
     }
 
+    public static final String TAG = IpSearchFragment.class.getName();
 
     private static final int SNACK_ERROR_DURATION = 3000;
 

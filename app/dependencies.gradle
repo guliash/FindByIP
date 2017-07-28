@@ -1,15 +1,16 @@
 def versions = [
-        support  : '26.0.0-alpha1',
-        rxjava   : '2.1.2',
-        rxandroid: '2.0.1',
-        rxbinding: '2.0.0',
-        okhttp   : '3.8.1',
-        retrofit : '2.3.0',
-        dagger   : '2.11',
-        moshi    : '1.5.0',
-        junit    : '4.12',
-        espresso : '2.2.2',
-        mockito  : '2.+'
+        support   : '26.0.0-alpha1',
+        rxjava    : '2.1.2',
+        rxandroid : '2.0.1',
+        rxbinding : '2.0.0',
+        okhttp    : '3.8.1',
+        retrofit  : '2.3.0',
+        dagger    : '2.11',
+        moshi     : '1.5.0',
+        junit     : '4.12',
+        espresso  : '3.0.0',
+        testRunner: '1.0.0',
+        mockito   : '2.+'
 ]
 
 dependencies {
@@ -35,7 +36,7 @@ dependencies {
     testCompile "junit:junit:${versions.junit}"
     testCompile "org.mockito:mockito-core:${versions.mockito}"
 
-    androidTestCompile("com.android.support.test.espresso:espresso-core:${versions.espresso}", {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    androidTestCompile "com.android.support.test.espresso:espresso-core:${versions.espresso}"
+    androidTestCompile "com.android.support.test:runner:${versions.testRunner}"
+    androidTestCompile "com.android.support:support-annotations:${versions.support}"
 }

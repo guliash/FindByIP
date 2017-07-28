@@ -2,8 +2,6 @@ package com.guliash.findbyip.search.ip;
 
 import com.guliash.findbyip.Stub;
 import com.guliash.findbyip.core.utils.Irrelevant;
-import com.guliash.findbyip.search.ip.IpSearchPresenter;
-import com.guliash.findbyip.search.ip.IpSearchView;
 import com.guliash.findbyip.search.ip.service.IpInfoService;
 
 import org.junit.Before;
@@ -49,7 +47,7 @@ public class IpSearchPresenterTest {
     }
 
     @Test
-    public void bindUnbindWithoutErrors() {
+    public void bindUnbind_withoutErrors() {
         presenter.bind(view);
 
         scheduler.advanceTimeBy(3, TimeUnit.SECONDS);
@@ -58,7 +56,7 @@ public class IpSearchPresenterTest {
     }
 
     @Test
-    public void showsLocationIfIpInfoServiceEmitsValue() {
+    public void ipInfoServiceEmitsValue_showsLocation() {
         presenter.bind(view);
 
         findByIpSelections.onNext(Irrelevant.INSTANCE);
@@ -70,7 +68,7 @@ public class IpSearchPresenterTest {
     }
 
     @Test
-    public void showsErrorIfIpInfoServiceErrored() {
+    public void ipInfoServiceEmitsError_showsError() {
         when(ipInfoService.findByIp(anyString())).thenReturn(Flowable.error(new Throwable()));
 
         presenter.bind(view);
@@ -84,7 +82,7 @@ public class IpSearchPresenterTest {
     }
 
     @Test
-    public void ifIpInfoServiceErroredOnceWillNotUnsubscribeFromIpInfoSelections() {
+    public void ifIpInfoServiceEmtisError_willNotUnsubscribeFromIpInfoSelections() {
         when(ipInfoService.findByIp(anyString())).thenReturn(Flowable.error(new Throwable()));
 
         presenter.bind(view);

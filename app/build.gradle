@@ -51,16 +51,26 @@ android {
         }
     }
 
-    flavorDimensions "ip"
+    flavorDimensions 'ip'
 
     productFlavors {
         freegeoip {
-            dimension "ip"
+            dimension 'ip'
         }
         geoip {
-            dimension "ip"
+            dimension 'ip'
         }
     }
+
+    sourceSets {
+        androidTest {
+            java.srcDir 'src/testCommon/java'
+        }
+        test {
+            java.srcDir 'src/testCommon/java'
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

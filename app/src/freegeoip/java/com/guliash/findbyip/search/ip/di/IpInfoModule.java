@@ -1,8 +1,8 @@
-package com.guliash.findbyip.search.ip;
+package com.guliash.findbyip.search.ip.di;
 
 import com.guliash.findbyip.search.di.SearchScope;
 import com.guliash.findbyip.search.ip.service.IpInfoService;
-import com.guliash.findbyip.search.ip.service.geoip.di.GeoIp;
+import com.guliash.findbyip.search.ip.service.freegeoip.di.Freegeoip;
 
 import dagger.Module;
 import dagger.Provides;
@@ -12,7 +12,7 @@ public class IpInfoModule {
 
     @Provides
     @SearchScope
-    public static IpInfoService provideIpInfoService(@GeoIp IpInfoService ipInfoService) {
+    public static IpInfoService provideIpInfoService(@Freegeoip IpInfoService ipInfoService) {
         return ipInfoService;
     }
 

@@ -10,7 +10,6 @@ import io.reactivex.schedulers.Schedulers;
 
 @Module
 public class RxModule {
-
     @Provides
     @Singleton
     @MainScheduler
@@ -31,5 +30,4 @@ public class RxModule {
     public Scheduler provideComputationScheduler() {
         return Schedulers.computation();
     }
-
 }
