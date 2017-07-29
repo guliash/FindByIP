@@ -5,29 +5,45 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/ip"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/ip_input_hint" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/find"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/find" />
+        <EditText
+            android:id="@+id/ip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/ip_input_hint" />
 
-    <TextView
-        android:id="@+id/location"
-        style="@style/LocationStyle"
+        <Button
+            android:id="@+id/find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/find" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/location_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/show_on_map"
-        android:text="@string/show_on_map"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/location"
+            style="@style/LocationStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/show_on_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_on_map" />
+
+    </LinearLayout>
 
 </LinearLayout>

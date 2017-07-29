@@ -30,8 +30,8 @@ public class IpSearchPresenter extends BasePresenter<IpSearchView> {
 
     @Inject
     public IpSearchPresenter(@NonNull SearchState searchState,
-                             @NonNull IpInfoService ipInfoService,
                              @NonNull SearchCommunicationCenter searchCommunicationCenter,
+                             @NonNull IpInfoService ipInfoService,
                              @NonNull @MainScheduler Scheduler mainScheduler,
                              @NonNull @IoScheduler Scheduler ioScheduler,
                              @NonNull @ComputationScheduler Scheduler computationScheduler) {
@@ -47,6 +47,8 @@ public class IpSearchPresenter extends BasePresenter<IpSearchView> {
     public void bind(IpSearchView view) {
         super.bind(view);
 
+        view.hideLocation();
+
         unsubscribeOnUnbind(
                 view.findByIpSelections()
                         .toFlowable(BackpressureStrategy.DROP)
@@ -61,11 +63,12 @@ public class IpSearchPresenter extends BasePresenter<IpSearchView> {
                         .observeOn(mainScheduler)
                         .doOnError(ø -> view.showError())
                         .retryWhen(throwables -> throwables)
-                        .doOnNext(searchState::setIpInfo)
-                        .subscribe(it -> view.showLocation(it.location())),
+                        .subscribe(searchState::setIpInfo),
 
                 view.showOnMapSelections()
-                        .subscribe(ø -> searchCommunicationCenter.showOnMapSelected())
+                        .subscribe(ø -> searchCommunicationCenter.showOnMapSelected()),
+
+                searchState.ipInfo().subscribe(it -> view.showLocation(it.location()))
         );
     }
 }

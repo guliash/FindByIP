@@ -19,6 +19,8 @@ public interface IpSearchView {
 
     void showError();
 
+    void hideLocation();
+
     void showLocation(Location location);
 
 }

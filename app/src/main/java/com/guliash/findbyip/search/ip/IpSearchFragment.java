@@ -34,6 +34,8 @@ public class IpSearchFragment extends Fragment implements IpSearchView {
 
     private EditText ipEditText;
     private Button findButton;
+
+    private ViewGroup locationLayout;
     private Button showOnMapButton;
     private TextView locationTextView;
 
@@ -64,6 +66,8 @@ public class IpSearchFragment extends Fragment implements IpSearchView {
 
         ipEditText = view.findViewById(R.id.ip);
         findButton = view.findViewById(R.id.find);
+
+        locationLayout = view.findViewById(R.id.location_layout);
         showOnMapButton = view.findViewById(R.id.show_on_map);
         locationTextView = view.findViewById(R.id.location);
     }
@@ -106,7 +110,13 @@ public class IpSearchFragment extends Fragment implements IpSearchView {
     }
 
     @Override
+    public void hideLocation() {
+        locationLayout.setVisibility(View.GONE);
+    }
+
+    @Override
     public void showLocation(Location location) {
+        locationLayout.setVisibility(View.VISIBLE);
         locationTextView.setText(String.format("%s,%s", location.latitude(), location.longitude()));
     }
 

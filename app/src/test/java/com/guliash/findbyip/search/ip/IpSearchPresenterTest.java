@@ -2,6 +2,9 @@ package com.guliash.findbyip.search.ip;
 
 import com.guliash.findbyip.Stub;
 import com.guliash.findbyip.core.utils.Irrelevant;
+import com.guliash.findbyip.search.SearchCommunicationCenter;
+import com.guliash.findbyip.search.SearchState;
+import com.guliash.findbyip.search.ip.model.IpInfo;
 import com.guliash.findbyip.search.ip.service.IpInfoService;
 
 import org.junit.Before;
@@ -23,6 +26,12 @@ import static org.mockito.Mockito.when;
 public class IpSearchPresenterTest {
 
     @Mock
+    SearchState searchState;
+
+    @Mock
+    SearchCommunicationCenter searchCommunicationCenter;
+
+    @Mock
     IpInfoService ipInfoService;
 
     @Mock
@@ -31,6 +40,9 @@ public class IpSearchPresenterTest {
     private final TestScheduler scheduler = new TestScheduler();
 
     private PublishSubject<Object> findByIpSelections = PublishSubject.create();
+    private PublishSubject<Object> showOnMapSelections = PublishSubject.create();
+
+    private PublishSubject<IpInfo> searchStateIpInfo = PublishSubject.create();
 
     private IpSearchPresenter presenter;
 
@@ -42,8 +54,18 @@ public class IpSearchPresenterTest {
 
         when(view.ip()).thenReturn("8.8.8.8");
         when(view.findByIpSelections()).thenReturn(findByIpSelections);
+        when(view.showOnMapSelections()).thenReturn(showOnMapSelections);
 
-        presenter = new IpSearchPresenter(ipInfoService, scheduler, scheduler, scheduler);
+        when(searchState.ipInfo()).thenReturn(searchStateIpInfo);
+
+        presenter = new IpSearchPresenter(
+                searchState,
+                searchCommunicationCenter,
+                ipInfoService,
+                scheduler,
+                scheduler,
+                scheduler
+        );
     }
 
     @Test
@@ -56,7 +78,7 @@ public class IpSearchPresenterTest {
     }
 
     @Test
-    public void ipInfoServiceEmitsValue_showsLocation() {
+    public void ipInfoServiceEmitsValue_updatesIpInfoState() {
         presenter.bind(view);
 
         findByIpSelections.onNext(Irrelevant.INSTANCE);
@@ -64,7 +86,7 @@ public class IpSearchPresenterTest {
 
         presenter.unbind(view);
 
-        verify(view).showLocation(Stub.IP_INFO.location());
+        verify(searchState).setIpInfo(Stub.IP_INFO);
     }
 
     @Test
@@ -82,7 +104,7 @@ public class IpSearchPresenterTest {
     }
 
     @Test
-    public void ifIpInfoServiceEmtisError_willNotUnsubscribeFromIpInfoSelections() {
+    public void ifIpInfoServiceEmitsError_willNotUnsubscribeFromIpInfoSelections() {
         when(ipInfoService.findByIp(anyString())).thenReturn(Flowable.error(new Throwable()));
 
         presenter.bind(view);
@@ -97,5 +119,17 @@ public class IpSearchPresenterTest {
 
         verify(view, times(2)).showError();
     }
+
+    @Test
+    public void searchStateEmitsIpInfo_showsIpLocation() {
+        presenter.bind(view);
+
+        searchStateIpInfo.onNext(Stub.IP_INFO);
+
+        presenter.unbind(view);
+
+        verify(view).showLocation(Stub.IP_INFO.location());
+    }
+
 
 }
