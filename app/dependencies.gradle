@@ -36,7 +36,7 @@ dependencies {
     compile "com.google.dagger:dagger:${versions.dagger}"
     annotationProcessor "com.google.dagger:dagger-compiler:${versions.dagger}"
 
-    compile "com.google.auto.value:auto-value:${versions.auto_value}"
+    provided "com.google.auto.value:auto-value:${versions.auto_value}"
     annotationProcessor "com.google.auto.value:auto-value:${versions.auto_value}"
 
     annotationProcessor "com.ryanharter.auto.value:auto-value-parcel:${versions.auto_value_parcel}"
