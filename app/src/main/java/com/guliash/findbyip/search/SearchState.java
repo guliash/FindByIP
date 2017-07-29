@@ -1,5 +1,6 @@
 package com.guliash.findbyip.search;
 
+import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.AnyThread;
@@ -12,7 +13,9 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.subjects.PublishSubject;
 
-public class SearchState implements Parcelable {
+public class SearchState {
+
+    private static final String IP_INFO = "searchState#ipInfo";
 
     private IpInfo ipInfo;
 
@@ -20,22 +23,6 @@ public class SearchState implements Parcelable {
 
     public SearchState() {
     }
-
-    protected SearchState(@NonNull Parcel in) {
-        ipInfo = in.readParcelable(IpInfo.class.getClassLoader());
-    }
-
-    public static final Creator<SearchState> CREATOR = new Creator<SearchState>() {
-        @Override
-        public SearchState createFromParcel(Parcel in) {
-            return new SearchState(in);
-        }
-
-        @Override
-        public SearchState[] newArray(int size) {
-            return new SearchState[size];
-        }
-    };
 
     @AnyThread
     public synchronized void setIpInfo(@NonNull IpInfo ipInfo) {
@@ -55,13 +42,11 @@ public class SearchState implements Parcelable {
         return ipInfo == null ? Observable.empty() : Observable.just(ipInfo);
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public void saveState(Bundle bundle) {
+        bundle.putParcelable(IP_INFO, ipInfo);
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeParcelable(ipInfo, flags);
+    public void restoreState(Bundle bundle) {
+        ipInfo = bundle.getParcelable(IP_INFO);
     }
 }

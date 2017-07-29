@@ -19,24 +19,16 @@ import javax.inject.Inject;
 public class SearchActivity extends AppCompatActivity
         implements IpSearchComponentBuilderProvider, LocationComponentBuilderProvider {
 
-    private static final String SEARCH_STATE = "searchState";
-
     private SearchComponent component;
 
-    @Inject
-    SearchState searchState;
+    private SearchState searchState = new SearchState();
 
     @Inject
     SearchCommunicationCenter searchCommunicationCenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SearchState searchState;
-        if (savedInstanceState == null) {
-            searchState = new SearchState();
-        } else {
-            searchState = savedInstanceState.getParcelable(SEARCH_STATE);
-        }
+        searchState.restoreState(savedInstanceState);
 
         component = FindByIpApplication.get(this).applicationComponent()
                 .searchComponentBuilder()
@@ -64,7 +56,7 @@ public class SearchActivity extends AppCompatActivity
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(SEARCH_STATE, searchState);
+        searchState.saveState(outState);
     }
 
     @Override
