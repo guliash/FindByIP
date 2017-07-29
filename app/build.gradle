@@ -15,8 +15,8 @@ repositories {
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(rootProject.file("keystore.properties")))
+def findByIpProperties = new Properties()
+findByIpProperties.load(new FileInputStream(rootProject.file("findbyip.properties")))
 
 android {
     compileSdkVersion 26
@@ -28,13 +28,15 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        resValue "string", "google_maps_api_key", (project.findProperty("googleMapsApiKey") ?: "")
+
     }
     signingConfigs {
         release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
+            keyAlias findByIpProperties['keyAlias']
+            keyPassword findByIpProperties['keyPassword']
+            storeFile file(findByIpProperties['storeFile'])
+            storePassword findByIpProperties['storePassword']
         }
     }
     lintOptions {

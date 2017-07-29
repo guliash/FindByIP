@@ -14,6 +14,9 @@ public interface IpSearchView {
     @NonNull
     Observable<Object> findByIpSelections();
 
+    @NonNull
+    Observable<Object> showOnMapSelections();
+
     void showError();
 
     void showLocation(Location location);

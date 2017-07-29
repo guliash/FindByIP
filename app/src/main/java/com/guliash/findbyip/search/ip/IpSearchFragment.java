@@ -1,6 +1,5 @@
 package com.guliash.findbyip.search.ip;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -35,19 +34,20 @@ public class IpSearchFragment extends Fragment implements IpSearchView {
 
     private EditText ipEditText;
     private Button findButton;
+    private Button showOnMapButton;
     private TextView locationTextView;
 
     @Inject
     IpSearchPresenter presenter;
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        Objects.requireInstance(context, IpSearchComponentBuilderProvider.class)
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        Objects.requireInstance(getContext(), IpSearchComponentBuilderProvider.class)
                 .ipSearchComponentBuilder()
                 .build()
                 .inject(this);
+
+        super.onCreate(savedInstanceState);
     }
 
     @Nullable
@@ -64,6 +64,7 @@ public class IpSearchFragment extends Fragment implements IpSearchView {
 
         ipEditText = view.findViewById(R.id.ip);
         findButton = view.findViewById(R.id.find);
+        showOnMapButton = view.findViewById(R.id.show_on_map);
         locationTextView = view.findViewById(R.id.location);
     }
 
@@ -91,6 +92,12 @@ public class IpSearchFragment extends Fragment implements IpSearchView {
     @Override
     public Observable<Object> findByIpSelections() {
         return RxView.clicks(findButton);
+    }
+
+    @NonNull
+    @Override
+    public Observable<Object> showOnMapSelections() {
+        return RxView.clicks(showOnMapButton);
     }
 
     @Override

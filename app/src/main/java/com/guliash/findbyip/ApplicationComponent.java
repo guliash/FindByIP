@@ -12,6 +12,6 @@ import dagger.Component;
 @Component(modules = {NetworkModule.class, RxModule.class})
 public interface ApplicationComponent {
 
-    SearchComponent.SearchComponentBuilder searchComponentBuilder();
+    SearchComponent.Builder searchComponentBuilder();
 
 }
